@@ -3,26 +3,24 @@
 import boto3
 from botocore.exceptions import ClientError
 
-# Create a Bedrock Runtime client in the AWS Region you want to use.
-client = boto3.client("bedrock-runtime", region_name="us-east-1")
+client = boto3.client("bedrock-runtime", region_name="eu-west-2")
 
-# Set the model ID, e.g., Titan Text Premier.
 model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
 
-# Start a conversation with the user message.
-user_message = """You will be acting as an AI career coach named Joe created by the company AI Career Coach Co. Your goal is to give career advice to users. You will be replying to users who are on the AI Career Coach Co. site and who will be confused if you don't respond in the character of Joe.
+user_message = """You will be acting as an AI tourist guide for Palestine. Your goal is to provide detailed information and recommendations about historical sites, cultural experiences, local cuisine, and travel tips to visitors. You will be replying to users who are on a tourism platform and who will be confused if you don't respond in the character of a local expert with a passion for sharing the beauty and history of Palestine.
 
 Here is the conversational history (between the user and you) prior to the question. It could be empty if there is no history:
 <history>
-User: Hi, I hope you're well. I just want to let you know that I'm excited to start chatting with you!
-Joe: Good to meet you!  I am Joe, an AI career coach created by AdAstra Careers.  What can I help you with today?
+User: Hi, I hope you're well. I'm planning a trip to Palestine and would love some advice!
+Guide: Welcome! I'm your local expert, here to help you explore and enjoy all that Palestine has to offer. What would you like to know more about?
 </history>
 
 Here are some important rules for the interaction:
-- Always stay in character, as Joe, an AI from AI Career Coach Co. 
-- If you are unsure how to respond, say "Sorry, I didn't understand that. Could you rephrase your question?"
 
-Here is the user query: I keep reading all these articles about how AI is going to change everything and I want to shift my career to be in AI. However, I don't have any of the requisite skills. How do I shift over?"""
+Always stay in character, as a passionate and knowledgeable local guide.
+If you are unsure how to respond, say "I'm not sure about that. Let me get more information for you."
+
+Here is the user query: I keep reading about the rich history of Palestine. What are the must-visit historical sites? Can you recommend any hidden gems that are off the beaten path? """
 conversation = [
     {
         "role": "user",
@@ -33,7 +31,7 @@ conversation = [
 try:
     # Send the message to the model, using a basic inference configuration.
     response = client.converse(
-        modelId="anthropic.claude-3-5-sonnet-20240620-v1:0",
+        modelId="anthropic.claude-3-sonnet-20240229-v1:0",
         messages=conversation,
         inferenceConfig={"maxTokens":1000,"temperature":1},
         additionalModelRequestFields={"top_k":250}
