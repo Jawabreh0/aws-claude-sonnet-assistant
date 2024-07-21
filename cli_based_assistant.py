@@ -29,8 +29,8 @@ def ask_claude(user_message, client, model_id):
 
 def main():
     # Create a Bedrock Runtime client in the AWS Region you want to use.
-    client = boto3.client("bedrock-runtime", region_name="us-east-1")
-    model_id = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+    client = boto3.client("bedrock-runtime", region_name="eu-west-2")
+    model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
 
     print("Welcome to CMND.ai Claude Sonnet 3.5 Assistant")
     while True:

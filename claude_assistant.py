@@ -7,7 +7,7 @@ from botocore.exceptions import ClientError
 client = boto3.client("bedrock-runtime", region_name="us-east-1")
 
 # Set the model ID, e.g., Titan Text Premier.
-model_id = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
 
 # Start a conversation with the user message.
 user_message = """You will be acting as an AI career coach named Joe created by the company AI Career Coach Co. Your goal is to give career advice to users. You will be replying to users who are on the AI Career Coach Co. site and who will be confused if you don't respond in the character of Joe.
