@@ -32,7 +32,7 @@ def main():
     client = boto3.client("bedrock-runtime", region_name="eu-west-2")
     model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
 
-    print("Welcome to CMND.ai Claude Sonnet 3.5 Assistant")
+    print("Welcome to CMND.ai Claude 3 Sonnet Assistant")
     while True:
         user_message = input("User: ")
         if user_message.lower() in ["exit", "quit"]:

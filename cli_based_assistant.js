@@ -48,7 +48,7 @@ async function main() {
   const client = new BedrockRuntimeClient({ region: "eu-west-2" });
   const modelId = "anthropic.claude-3-sonnet-20240229-v1:0";
 
-  console.log("Welcome to CMND.ai Claude Sonnet 3.5 Assistant");
+  console.log("Welcome to CMND.ai Claude 3 Sonnet Assistant");
 
   const readline = require("readline").createInterface({
     input: process.stdin,
